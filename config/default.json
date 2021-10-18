@@ -1,0 +1,47 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "public": "../build/",
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "authentication": {
+    "entity": "user",
+    "service": "api/users",
+    "secret": "FEATHERS_AUTH_SECRET",
+    "authStrategies": ["jwt"],
+    "jwtOptions": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "oauth": {
+      "redirect": "/",
+      "github": {
+        "key": "GITHUB_CLIENT_ID",
+        "secret": "GITHUB_CLIENT_SECRET"
+      }
+    }
+  },
+  "cassandra": {
+    "clientOptions": {
+      "cloud": {
+        "secureConnectBundle": "ASTRA_DB_SECURE_CONNECT_BUNDLE_PATH"
+      },
+      "credentials": {
+        "username": "ASTRA_DB_CLIENT_ID",
+        "password": "ASTRA_DB_CLIENT_SECRET"
+      },
+      "keyspace": "ASTRA_DB_KEYSPACE"
+    },
+    "ormOptions": {
+      "migration": "alter",
+      "createKeyspace": false
+    }
+  }
+}
