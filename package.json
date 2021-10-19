@@ -14,6 +14,7 @@
   },
   "proxy": "http://localhost:3030",
   "dependencies": {
+    "@craco/craco": "^6.3.0",
     "@feathersjs/authentication": "^4.5.11",
     "@feathersjs/authentication-local": "^4.5.11",
     "@feathersjs/authentication-oauth": "^4.5.11",
@@ -23,6 +24,9 @@
     "@feathersjs/feathers": "^4.5.11",
     "@feathersjs/socketio": "^4.5.11",
     "@feathersjs/transport-commons": "^4.5.11",
+    "@headlessui/react": "^1.4.1",
+    "@heroicons/react": "^1.0.4",
+    "@tailwindcss/forms": "^0.3.4",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -41,15 +45,18 @@
     "winston": "^3.3.3"
   },
   "devDependencies": {
+    "autoprefixer": "^9.8.8",
     "axios": "^0.23.0",
     "concurrently": "^6.3.0",
-    "nodemon": "^2.0.13"
+    "nodemon": "^2.0.13",
+    "postcss": "^7.0.39",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
   },
   "scripts": {
     "start": "npm run build && node api/",
-    "dev": "concurrently \"react-scripts start\" \"nodemon api/\"",
-    "build": "react-scripts build",
-    "test:ui": "react-scripts test",
+    "dev": "concurrently \"craco start\" \"nodemon api/\"",
+    "build": "craco build",
+    "test:ui": "craco test",
     "test:api": "jest --forceExit ./test",
     "eject": "react-scripts eject"
   },
